@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import store from './components/redux/contacts-store';
 import './index.css';
-import App from './components/App/App';
+import { App } from './components/App/App';
 
 ReactDOM.render(
   <React.StrictMode>

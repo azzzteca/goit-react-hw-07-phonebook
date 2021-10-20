@@ -1,26 +1,16 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as actions from '../redux/contacts-actions';
 import s from './Filter.module.css';
 
-function Filter({ filterContact }) {
+export function Filter() {
+  const dispatch = useDispatch();
   return (
     <label>
       Find contacts by name
-      <input type="text" onChange={filterContact} />
+      <input
+        type="text"
+        onChange={evt => dispatch(actions.filterContact(evt.target.value))}
+      />
     </label>
   );
 }
-
-const mapDispatchToProps = dispatch => ({
-  filterContact: evt => dispatch(actions.filterContact(evt.target.value)),
-});
-
-export default connect(null, mapDispatchToProps)(Filter);
-
-Filter.propTypes = {
-  info: PropTypes.shape({
-    contacts: PropTypes.array,
-  }),
-  filterContact: PropTypes.func.isRequired,
-};

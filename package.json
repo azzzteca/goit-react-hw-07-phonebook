@@ -2,7 +2,6 @@
   "name": "goit-react-hw-06-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://azzzteca.github.io/goit-react-hw-06-phonebook-toolkit",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.14.1",

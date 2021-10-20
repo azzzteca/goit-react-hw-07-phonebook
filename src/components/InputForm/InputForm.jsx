@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as actions from '../redux/contacts-actions';
 import { useLocalStorage } from '../hooks/useLocalStoraje';
 import s from './InputForm.module.css';
 
-function InputForm({ addContact }) {
+export function InputForm() {
   const [name, setName] = useLocalStorage('name', '');
   const [number, setNumber] = useLocalStorage('number', '');
 
@@ -25,10 +24,12 @@ function InputForm({ addContact }) {
     }
   };
 
+  let dispatch = useDispatch();
+
   const handleFormSubmit = evt => {
     evt.preventDefault();
 
-    addContact({ name, number });
+    dispatch(actions.addContact({ name, number }));
     setName('');
     setNumber('');
     evt.target.reset();
@@ -64,14 +65,3 @@ function InputForm({ addContact }) {
     </form>
   );
 }
-
-InputForm.propTypes = {
-  addContact: PropTypes.func.isRequired,
-};
-
-const mapDispatchToProps = dispatch => ({
-  addContact: ({ name, number }) =>
-    dispatch(actions.addContact({ name, number })),
-});
-
-export default connect(null, mapDispatchToProps)(InputForm);
