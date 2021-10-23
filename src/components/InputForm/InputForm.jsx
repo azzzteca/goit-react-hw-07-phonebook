@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../redux/contacts-actions';
 import { useLocalStorage } from '../hooks/useLocalStoraje';
 import s from './InputForm.module.css';
@@ -6,6 +6,7 @@ import s from './InputForm.module.css';
 export function InputForm() {
   const [name, setName] = useLocalStorage('name', '');
   const [number, setNumber] = useLocalStorage('number', '');
+  const contacts = useSelector(state => state.contacts.items);
 
   const inputChange = evt => {
     const { name, value } = evt.target;
@@ -29,9 +30,17 @@ export function InputForm() {
   const handleFormSubmit = evt => {
     evt.preventDefault();
 
+    const newContact = name.toLowerCase();
+    const savedContacts = contacts.find(
+      contact => contact.name.toLowerCase() === newContact,
+    );
+
+    if (savedContacts) {
+      alert(name + 'is already in contacts.');
+      return;
+    }
+
     dispatch(actions.addContact({ name, number }));
-    setName('');
-    setNumber('');
     evt.target.reset();
   };
 
