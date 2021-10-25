@@ -1,12 +1,18 @@
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { getContacts, getFilter } from '../redux/contacts-selectors';
-import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 import { ContactListItem } from '../ContactListItem/ContactListItem';
+import * as contactsOperations from '../redux/contacts-operations';
 
 export function ContactList({ children }) {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
 
   return (
     <div>
@@ -15,7 +21,7 @@ export function ContactList({ children }) {
       <ul>
         {!filter
           ? contacts.map(contact => (
-              <li key={uuidv4()}>
+              <li key={contact.id}>
                 <ContactListItem contact={contact} />
               </li>
             ))

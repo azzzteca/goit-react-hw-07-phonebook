@@ -8,6 +8,7 @@ import s from './App.module.css';
 
 export function App() {
   const contacts = useSelector(getContacts);
+
   return (
     <div className={s.app}>
       <Section title={'Phonebook'}>

@@ -1,12 +1,14 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../redux/contacts-actions';
-import { useLocalStorage } from '../hooks/useLocalStoraje';
+import * as contactsOperations from '../redux/contacts-operations';
+import { getContacts } from '../redux/contacts-selectors';
 import s from './InputForm.module.css';
 
 export function InputForm() {
-  const [name, setName] = useLocalStorage('name', '');
-  const [number, setNumber] = useLocalStorage('number', '');
-  const contacts = useSelector(state => state.contacts.items);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
 
   const inputChange = evt => {
     const { name, value } = evt.target;
@@ -25,8 +27,6 @@ export function InputForm() {
     }
   };
 
-  let dispatch = useDispatch();
-
   const handleFormSubmit = evt => {
     evt.preventDefault();
 
@@ -40,7 +40,8 @@ export function InputForm() {
       return;
     }
 
-    dispatch(actions.addContact({ name, number }));
+    dispatch(contactsOperations.addContacts({ name, number }));
+
     evt.target.reset();
   };
 
