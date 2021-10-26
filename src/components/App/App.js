@@ -3,7 +3,7 @@ import { Section } from '../Section/Section.jsx';
 import { InputForm } from '../InputForm/InputForm.jsx';
 import { Filter } from '../Filter/Filter.jsx';
 import { ContactList } from '../ContactList/ContactList.jsx';
-import { getContacts } from '../redux/contacts-selectors';
+import { getContacts } from '../../redux/contacts-selectors';
 import s from './App.module.css';
 
 export function App() {

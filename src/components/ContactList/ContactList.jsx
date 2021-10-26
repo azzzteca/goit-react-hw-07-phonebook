@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts, getFilter } from '../redux/contacts-selectors';
 import PropTypes from 'prop-types';
 import { ContactListItem } from '../ContactListItem/ContactListItem';
-import * as contactsOperations from '../redux/contacts-operations';
+import { getContacts, getFilter } from '../../redux/contacts-selectors';
+import * as contactsOperations from '../../redux/contacts-operations';
 
 export function ContactList({ children }) {
   const contacts = useSelector(getContacts);

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import * as contactsOperations from '../redux/contacts-operations';
+import * as contactsOperations from '../../redux/contacts-operations';
 
 export function ContactListItem({ contact }) {
   const dispatch = useDispatch();
