@@ -1,4 +1,5 @@
 import * as contactsActions from './contacts-actions';
+import { v4 as uuidv4 } from 'uuid';
 
 export const fetchContacts = () => dispatch => {
   dispatch(contactsActions.fetchContactsRequest());
@@ -22,7 +23,11 @@ export const addContacts = contact => dispatch => {
 
   fetch('http://localhost:4000/contacts', {
     method: 'POST',
-    body: JSON.stringify({ name: contact.name, number: contact.number }),
+    body: JSON.stringify({
+      name: contact.name,
+      number: contact.number,
+      id: uuidv4(),
+    }),
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
     },

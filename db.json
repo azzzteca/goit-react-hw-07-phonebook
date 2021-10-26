@@ -1,54 +1,19 @@
 {
   "contacts": [
     {
-      "id": "3",
-      "name": "Eden Clements",
-      "number": "645-17-79"
-    },
-    {
-      "name": "rwererwrew",
-      "number": "64645645654",
-      "id": "Mcxrtvj"
-    },
-    {
       "name": "andrew",
-      "number": "64645645654",
-      "id": "MtyDEdr"
-    },
-    {
-      "name": "kert",
       "number": "5555555",
-      "id": "Kaa0bbj"
-    },
-    {
-      "name": "rqrerwerwe",
-      "number": "5555555",
-      "id": "vX68L4L"
-    },
-    {
-      "name": "andreweeee",
-      "number": "55555555454",
-      "id": "rkyaBxL"
-    },
-    {
-      "name": "fsdfsdfsdfsdf",
-      "number": "534534534543",
-      "id": "eseDzJz"
+      "id": "a68fa126-6949-43db-a0d8-d439eccd5b5a"
     },
     {
       "name": "andrewgfgf",
-      "number": "64645645654",
-      "id": "YJHJgSz"
-    },
-    {
-      "name": "andrewrerewr",
-      "number": "5454353",
-      "id": "qRIqr2p"
-    },
-    {
-      "name": "andrew",
       "number": "5555555",
-      "id": "_nn5ebr"
+      "id": "1b6cfc25-ab42-4975-9ceb-f846045c817b"
+    },
+    {
+      "name": "rwererwrew",
+      "number": "5555555",
+      "id": "052a10b4-af50-4147-99aa-b984b9b8b7c2"
     }
   ]
 }

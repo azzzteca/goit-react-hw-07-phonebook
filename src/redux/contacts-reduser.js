@@ -6,13 +6,13 @@ const itemsReducer = createReducer([], {
   [contactsActions.fetchContactsSucccess]: (_, { payload }) => {
     return payload;
   },
-  [contactsActions.addContactsSuccess]: (state, { payload }) => [
-    ...state,
-    payload,
-  ],
+  [contactsActions.addContactsSuccess]: (state, { payload }) => {
+    return [...state, payload];
+  },
 
-  [contactsActions.deleteContacstSuccess]: (state, { payload }) =>
-    state.filter(contact => contact.id !== payload),
+  [contactsActions.deleteContacstSuccess]: (state, { payload }) => {
+    return state.filter(contact => contact.id !== payload);
+  },
 });
 
 const filterReducer = createReducer('', {

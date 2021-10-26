@@ -13,10 +13,11 @@ export const fetchContactsError = createAction('contacts/fetchContactsError');
 export const addContactsRequest = createAction('contacts/addContactRequest');
 export const addContactsSuccess = createAction(
   'contacts/addContactSuccess',
-  ({ name, number }) => ({
+  ({ name, number, id }) => ({
     payload: {
       name,
       number,
+      id,
     },
   }),
 );
